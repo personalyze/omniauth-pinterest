@@ -39,7 +39,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= {} # There is no endpoint to get user information
+        @raw_info ||= access_token.get('/user_account').parsed
       end
 
       def ssl?
