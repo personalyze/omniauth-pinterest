@@ -4,7 +4,7 @@ module OmniAuth
   module Strategies
     class Pinterest < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        site: 'https://api.pinterest.com/',
+        site: 'https://api.pinterest.com/v5/',
         authorize_url: 'https://pinterest.com/oauth/',
         token_url: 'https://api.pinterest.com/v5/oauth/token'
       }
@@ -15,7 +15,7 @@ module OmniAuth
         super
       end
 
-      uid { raw_info['id'] }
+      uid { raw_info['username'] }
 
       info { raw_info }
 
