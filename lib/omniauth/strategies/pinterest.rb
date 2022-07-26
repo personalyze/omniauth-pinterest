@@ -4,7 +4,7 @@ module OmniAuth
   module Strategies
     class Pinterest < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        site: 'https://api.pinterest.com/v5/',
+        site: 'https://api.pinterest.com/',
         authorize_url: 'https://pinterest.com/oauth/',
         token_url: 'https://api.pinterest.com/v5/oauth/token'
       }
@@ -39,7 +39,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/user_account').parsed
+        @raw_info ||= access_token.get('/v5/user_account').parsed
       end
 
       def ssl?
